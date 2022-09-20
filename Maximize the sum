@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long int ll;
+int main(){
+	int t;
+	cin>>t;
+		while(t--){
+		ll n,k;
+		cin>>n>>k;
+		unordered_map<ll,ll> mp;
+			for(ll i=0;i<n;i++){
+			ll val;
+			cin>>val;
+			mp[val]+=val;
+		}
+		ll ans=0;
+		vector<ll> vec;
+		for(auto m:mp){
+			vec.push_back(m.second);
+		}
+		sort(begin(vec),end(vec));
+		for(ll i=vec.size()-1;i>=0;i--){
+			if(k==0 or vec[i]<=0){
+				break;
+			}
+			else{
+				ans+=vec[i];
+			}
+		k--;
+		}
+	cout << ans << endl;
+	}
+}
